@@ -29,4 +29,3 @@ export PATH=$PATH:/home/$USER/.local/bin
 
 ### **ToDo**
 - Exceptions when you reach api limit
-- Manually choose input language
