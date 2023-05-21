@@ -17,9 +17,13 @@ auth_key = args.authkey
 text = clipboard.paste()
 target_language = args.lang
 
-# Translating
-translator = deepl.Translator(auth_key) 
-result = translator.translate_text(text, target_lang=target_language) 
+# Translating, if not errors
+try:
+    translator = deepl.Translator(auth_key) 
+    result = translator.translate_text(text, target_lang=target_language)
+except deepl.exceptions.AuthorizationException as e:
+    exit(1)
+
 translated_text = result.text
 
 # Copying back translated stuff to clipboard
